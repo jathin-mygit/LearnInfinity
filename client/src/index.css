@@ -10,8 +10,8 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background: linear-gradient(135deg, #090040 0%, #471396 50%, #090040 100%);
-  color: #ffffff;
+  background: linear-gradient(135deg, #061E29 0%, #1D546D 50%, #061E29 100%);
+  color: #F3F4F4;
   overflow-x: hidden;
 }
 
@@ -25,14 +25,14 @@ code {
 }
 
 ::-webkit-scrollbar-track {
-  background: #090040;
+  background: #061E29;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #B13BFF;
+  background: #5F9598;
   border-radius: 4px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #FFCC00;
+  background: #F3F4F4;
 }

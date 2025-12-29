@@ -9,37 +9,37 @@ const Features = () => {
       icon: FiClock,
       title: 'Time-Based Credits',
       description: 'Fair exchange system where 1 hour of teaching equals 1 hour of learning credits.',
-      color: '#FFCC00'
+      color: '#F3F4F4'
     },
     {
       icon: FiUsers,
       title: 'Peer-to-Peer Learning',
       description: 'Connect directly with skilled individuals in your community and beyond.',
-      color: '#B13BFF'
+      color: '#5F9598'
     },
     {
       icon: FiTrendingUp,
       title: 'Skill Progression',
       description: 'Track your learning journey and build a comprehensive skill portfolio.',
-      color: '#471396'
+      color: '#1D546D'
     },
     {
       icon: FiShield,
       title: 'Verified Instructors',
       description: 'All instructors are verified through our comprehensive review system.',
-      color: '#B13BFF'
+      color: '#5F9598'
     },
     {
       icon: FiZap,
       title: 'Instant Matching',
       description: 'AI-powered matching system connects you with the perfect learning partner.',
-      color: '#FFCC00'
+      color: '#F3F4F4'
     },
     {
       icon: FiHeart,
       title: 'Community Driven',
       description: 'Join a supportive community of lifelong learners and passionate teachers.',
-      color: '#471396'
+      color: '#1D546D'
     }
   ];
 
@@ -100,7 +100,7 @@ const Features = () => {
                 variants={itemVariants}
                 whileHover={{ 
                   scale: 1.05,
-                  boxShadow: `0 20px 40px rgba(177, 59, 255, 0.1)`
+                  boxShadow: `0 20px 40px rgba(95, 149, 152, 0.1)`
                 }}
                 whileTap={{ scale: 0.95 }}
               >

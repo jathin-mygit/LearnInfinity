@@ -1,6 +1,6 @@
 .cta {
   padding: 8rem 0 0 0;
-  background: linear-gradient(180deg, #471396 0%, #090040 100%);
+  background: linear-gradient(180deg, #1D546D 0%, #061E29 100%);
   position: relative;
   overflow: hidden;
 }
@@ -24,12 +24,12 @@
   font-size: 3.5rem;
   font-weight: 800;
   line-height: 1.1;
-  color: #ffffff;
+  color: #F3F4F4;
   margin-bottom: 1.5rem;
 }
 
 .cta-title .highlight {
-  color: #B13BFF;
+  color: #5F9598;
   position: relative;
 }
 
@@ -40,7 +40,7 @@
   left: 0;
   width: 100%;
   height: 4px;
-  background: linear-gradient(90deg, #B13BFF, #FFCC00);
+  background: linear-gradient(90deg, #5F9598, #F3F4F4);
   border-radius: 2px;
 }
 
@@ -62,10 +62,10 @@
   align-items: center;
   gap: 0.5rem;
   padding: 1.2rem 2.5rem;
-  background: linear-gradient(135deg, #B13BFF 0%, #FFCC00 100%);
+  background: linear-gradient(135deg, #5F9598 0%, #F3F4F4 100%);
   border: none;
   border-radius: 50px;
-  color: #090040;
+  color: #061E29;
   font-size: 1.1rem;
   font-weight: 600;
   cursor: pointer;
@@ -92,9 +92,9 @@
 .cta-btn-secondary {
   padding: 1.2rem 2.5rem;
   background: transparent;
-  border: 2px solid #B13BFF;
+  border: 2px solid #5F9598;
   border-radius: 50px;
-  color: #B13BFF;
+  color: #5F9598;
   font-size: 1.1rem;
   font-weight: 600;
   cursor: pointer;
@@ -102,7 +102,7 @@
 }
 
 .cta-btn-secondary:hover {
-  background: rgba(177, 59, 255, 0.1);
+  background: rgba(95, 149, 152, 0.1);
 }
 
 .btn-icon {
@@ -122,7 +122,7 @@
   display: block;
   font-size: 2rem;
   font-weight: 700;
-  color: #FFCC00;
+  color: #F3F4F4;
   margin-bottom: 0.5rem;
 }
 
@@ -143,7 +143,7 @@
 .contact-title {
   font-size: 2rem;
   font-weight: 700;
-  color: #ffffff;
+  color: #F3F4F4;
   margin-bottom: 1rem;
 }
 
@@ -174,19 +174,19 @@
 }
 
 .contact-item:hover {
-  background: rgba(177, 59, 255, 0.1);
-  border-color: rgba(177, 59, 255, 0.3);
+  background: rgba(95, 149, 152, 0.1);
+  border-color: rgba(95, 149, 152, 0.3);
 }
 
 .contact-icon {
   width: 50px;
   height: 50px;
-  background: linear-gradient(135deg, #B13BFF, #FFCC00);
+  background: linear-gradient(135deg, #5F9598, #F3F4F4);
   border-radius: 12px;
   display: flex;
   align-items: center;
   justify-content: center;
-  color: #090040;
+  color: #061E29;
   font-size: 1.2rem;
 }
 
@@ -203,7 +203,7 @@
 
 .contact-value {
   font-size: 1rem;
-  color: #ffffff;
+  color: #F3F4F4;
   font-weight: 500;
 }
 
@@ -248,7 +248,7 @@
 .footer-logo .logo-skill {
   font-size: 1.2rem;
   font-weight: 800;
-  color: #FFCC00;
+  color: #F3F4F4;
   line-height: 1;
   margin-bottom: -0.1rem;
 }
@@ -256,7 +256,7 @@
 .footer-logo .logo-swap {
   font-size: 1.2rem;
   font-weight: 800;
-  color: #B13BFF;
+  color: #5F9598;
   line-height: 1;
 }
 
@@ -278,7 +278,7 @@
 .bg-gradient {
   position: absolute;
   border-radius: 50%;
-  background: radial-gradient(circle, rgba(177, 59, 255, 0.1) 0%, transparent 70%);
+  background: radial-gradient(circle, rgba(95, 149, 152, 0.1) 0%, transparent 70%);
 }
 
 .bg-gradient-1 {

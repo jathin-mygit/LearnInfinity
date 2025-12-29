@@ -1,9 +1,18 @@
-import React from 'react';
 import { motion } from 'framer-motion';
+import { useNavigate } from 'react-router-dom';
 import { FiArrowRight, FiPlay } from 'react-icons/fi';
 import './Hero.css';
 
 const Hero = () => {
+  const navigate = useNavigate();
+
+  const handleStartLearning = () => {
+    navigate('/auth');
+  };
+
+  const handleWatchDemo = () => {
+    navigate('/explore-skills');
+  };
   const containerVariants = {
     hidden: { opacity: 0 },
     visible: {
@@ -105,6 +114,7 @@ const Hero = () => {
           <motion.div className="hero-actions" variants={itemVariants}>
             <motion.button
               className="btn-primary"
+              onClick={handleStartLearning}
               whileHover={{ 
                 scale: 1.05,
                 boxShadow: "0 20px 40px rgba(255, 215, 0, 0.3)"
@@ -117,6 +127,7 @@ const Hero = () => {
 
             <motion.button
               className="btn-secondary"
+              onClick={handleWatchDemo}
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
             >

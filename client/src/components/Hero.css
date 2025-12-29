@@ -4,7 +4,7 @@
   align-items: center;
   position: relative;
   overflow: hidden;
-  background: linear-gradient(135deg, #090040 0%, #471396 50%, #090040 100%);
+  background: linear-gradient(135deg, #061E29 0%, #1D546D 50%, #061E29 100%);
 }
 
 .hero-background {
@@ -26,7 +26,7 @@
   position: absolute;
   width: 3px;
   height: 3px;
-  background: #B13BFF;
+  background: #5F9598;
   border-radius: 50%;
   filter: blur(0.5px);
 }
@@ -49,13 +49,13 @@
 
 .hero-badge {
   display: inline-block;
-  background: rgba(177, 59, 255, 0.1);
-  border: 1px solid rgba(177, 59, 255, 0.3);
+  background: rgba(95, 149, 152, 0.1);
+  border: 1px solid rgba(95, 149, 152, 0.3);
   border-radius: 50px;
   padding: 0.5rem 1.5rem;
   margin-bottom: 2rem;
   font-size: 0.9rem;
-  color: #B13BFF;
+  color: #5F9598;
   font-weight: 500;
 }
 
@@ -64,11 +64,11 @@
   font-weight: 800;
   line-height: 1.1;
   margin-bottom: 1.5rem;
-  color: #ffffff;
+  color: #F3F4F4;
 }
 
 .highlight {
-  color: #B13BFF;
+  color: #5F9598;
   position: relative;
 }
 
@@ -79,13 +79,13 @@
   left: 0;
   width: 100%;
   height: 4px;
-  background: linear-gradient(90deg, #B13BFF, #FFCC00);
+  background: linear-gradient(90deg, #5F9598, #F3F4F4);
   border-radius: 2px;
 }
 
 .highlight-secondary {
-  color: #ffffff;
-  background: linear-gradient(135deg, #B13BFF, #FFCC00);
+  color: #F3F4F4;
+  background: linear-gradient(135deg, #5F9598, #F3F4F4);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -113,7 +113,7 @@
   display: block;
   font-size: 2rem;
   font-weight: 700;
-  color: #FFCC00;
+  color: #F3F4F4;
   margin-bottom: 0.5rem;
 }
 
@@ -134,10 +134,10 @@
   align-items: center;
   gap: 0.5rem;
   padding: 1rem 2rem;
-  background: linear-gradient(135deg, #B13BFF 0%, #FFCC00 100%);
+  background: linear-gradient(135deg, #5F9598 0%, #F3F4F4 100%);
   border: none;
   border-radius: 12px;
-  color: #090040;
+  color: #061E29;
   font-size: 1.1rem;
   font-weight: 600;
   cursor: pointer;
@@ -167,9 +167,9 @@
   gap: 0.5rem;
   padding: 1rem 2rem;
   background: transparent;
-  border: 2px solid #B13BFF;
+  border: 2px solid #5F9598;
   border-radius: 12px;
-  color: #B13BFF;
+  color: #5F9598;
   font-size: 1.1rem;
   font-weight: 600;
   cursor: pointer;
@@ -177,7 +177,7 @@
 }
 
 .btn-secondary:hover {
-  background: rgba(177, 59, 255, 0.1);
+  background: rgba(95, 149, 152, 0.1);
 }
 
 .btn-icon {
@@ -187,6 +187,7 @@
 .hero-visual {
   position: relative;
   height: 500px;
+  min-width: 400px;
 }
 
 .skill-cards {
@@ -196,30 +197,37 @@
 
 .skill-card {
   position: absolute;
-  width: 200px;
+  width: 180px;
   padding: 1.5rem;
-  background: rgba(255, 255, 255, 0.05);
+  background: rgba(243, 244, 244, 0.05);
   backdrop-filter: blur(10px);
-  border: 1px solid rgba(177, 59, 255, 0.2);
+  border: 1px solid rgba(95, 149, 152, 0.2);
   border-radius: 16px;
   text-align: center;
   cursor: pointer;
   transition: all 0.3s ease;
+  z-index: 2;
+}
+
+.skill-card:hover {
+  transform: scale(1.05);
+  z-index: 10;
+  box-shadow: 0 10px 30px rgba(95, 149, 152, 0.2);
 }
 
 .skill-card:nth-child(1) {
-  top: 50px;
-  left: 0;
+  top: 30px;
+  left: 30px;
 }
 
 .skill-card:nth-child(2) {
-  top: 150px;
-  right: 0;
+  top: 200px;
+  right: 30px;
 }
 
 .skill-card:nth-child(3) {
-  bottom: 50px;
-  left: 50px;
+  bottom: 30px;
+  left: 120px;
 }
 
 .card-icon {
@@ -230,7 +238,7 @@
 .skill-card h3 {
   font-size: 1.1rem;
   font-weight: 600;
-  color: #ffffff;
+  color: #F3F4F4;
   margin-bottom: 0.5rem;
 }
 
@@ -241,8 +249,8 @@
 }
 
 .card-credits {
-  background: linear-gradient(135deg, #B13BFF, #FFCC00);
-  color: #090040;
+  background: linear-gradient(135deg, #5F9598, #F3F4F4);
+  color: #061E29;
   padding: 0.5rem 1rem;
   border-radius: 20px;
   font-size: 0.8rem;
@@ -260,7 +268,7 @@
 .flow-line {
   width: 300px;
   height: 2px;
-  background: linear-gradient(90deg, transparent, #B13BFF, transparent);
+  background: linear-gradient(90deg, transparent, #5F9598, transparent);
   position: relative;
 }
 
@@ -271,7 +279,7 @@
   left: 0;
   width: 20px;
   height: 4px;
-  background: #B13BFF;
+  background: #5F9598;
   border-radius: 2px;
   animation: flow 2s ease-in-out infinite;
 }
@@ -287,12 +295,12 @@
   top: -30px;
   left: 50%;
   transform: translateX(-50%);
-  background: rgba(177, 59, 255, 0.1);
-  border: 1px solid rgba(177, 59, 255, 0.3);
+  background: rgba(95, 149, 152, 0.1);
+  border: 1px solid rgba(95, 149, 152, 0.3);
   border-radius: 20px;
   padding: 0.5rem 1rem;
   font-size: 0.8rem;
-  color: #B13BFF;
+  color: #5F9598;
   font-weight: 500;
   white-space: nowrap;
 }
@@ -318,15 +326,27 @@
   }
 
   .hero-visual {
-    height: 300px;
+    height: 350px;
+    min-width: 300px;
   }
 
   .skill-card {
-    width: 150px;
+    width: 140px;
     padding: 1rem;
   }
 
+  .skill-card:nth-child(1) {
+    top: 20px;
+    left: 20px;
+  }
+
   .skill-card:nth-child(2) {
+    top: 160px;
     right: 20px;
+  }
+
+  .skill-card:nth-child(3) {
+    bottom: 20px;
+    left: 80px;
   }
 }

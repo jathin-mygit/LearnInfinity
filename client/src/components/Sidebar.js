@@ -1,36 +1,34 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { motion } from 'framer-motion';
-import { FiHome, FiStar, FiUsers, FiMessageCircle, FiMenu, FiX } from 'react-icons/fi';
+import { useNavigate, useLocation } from 'react-router-dom';
+import { useAuth } from '../context/AuthContext';
+import { FiHome, FiStar, FiUsers, FiCompass, FiAward, FiMessageCircle, FiMenu, FiX, FiUser } from 'react-icons/fi';
+import UserDashboard from './UserDashboard';
 import './Sidebar.css';
 
-const Sidebar = ({ activeSection, setActiveSection }) => {
+const Sidebar = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const navigate = useNavigate();
+  const location = useLocation();
+  const { isAuthenticated } = useAuth();
 
   const menuItems = [
-    { id: 'home', label: 'Home', icon: FiHome },
-    { id: 'features', label: 'Features', icon: FiStar },
-    { id: 'how-it-works', label: 'How It Works', icon: FiUsers },
-    { id: 'contact', label: 'Contact', icon: FiMessageCircle },
+    { id: '/', label: 'Home', icon: FiHome },
+    { id: '/features', label: 'Features', icon: FiStar },
+    { id: '/how-it-works', label: 'How It Works', icon: FiUsers },
+    { id: '/explore-skills', label: 'Explore Skills', icon: FiCompass },
+    { id: '/top-instructors', label: 'Top Instructors', icon: FiAward },
+    { id: '/contact', label: 'Contact', icon: FiMessageCircle },
   ];
 
-  const sidebarVariants = {
-    open: {
-      x: 0,
-      transition: {
-        type: "spring",
-        stiffness: 300,
-        damping: 40
-      }
-    },
-    closed: {
-      x: -280,
-      transition: {
-        type: "spring",
-        stiffness: 300,
-        damping: 40
-      }
-    }
-  };
+  // Add profile link if user is authenticated
+  const authenticatedMenuItems = isAuthenticated 
+    ? [
+        ...menuItems.slice(0, -1), // All items except contact
+        { id: '/profile', label: 'My Profile', icon: FiUser },
+        menuItems[menuItems.length - 1] // Contact at the end
+      ]
+    : menuItems;
 
   const itemVariants = {
     open: {
@@ -51,12 +49,13 @@ const Sidebar = ({ activeSection, setActiveSection }) => {
     }
   };
 
-  const handleNavClick = (sectionId) => {
-    setActiveSection(sectionId);
-    const element = document.getElementById(sectionId);
-    if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
-    }
+  const handleNavClick = (path) => {
+    navigate(path);
+    setIsOpen(false);
+  };
+
+  const handleGetStarted = () => {
+    navigate('/auth');
     setIsOpen(false);
   };
 
@@ -73,12 +72,7 @@ const Sidebar = ({ activeSection, setActiveSection }) => {
       </motion.button>
 
       {/* Sidebar */}
-      <motion.nav
-        className="sidebar"
-        variants={sidebarVariants}
-        initial="closed"
-        animate={isOpen ? "open" : "closed"}
-      >
+      <nav className={`sidebar ${isOpen ? 'sidebar-open' : ''}`}>
         <div className="sidebar-content">
           {/* Logo */}
           <motion.div
@@ -118,7 +112,7 @@ const Sidebar = ({ activeSection, setActiveSection }) => {
               }
             }}
           >
-            {menuItems.map((item) => {
+            {authenticatedMenuItems.map((item) => {
               const Icon = item.icon;
               return (
                 <motion.li
@@ -128,7 +122,7 @@ const Sidebar = ({ activeSection, setActiveSection }) => {
                   whileTap={{ scale: 0.95 }}
                 >
                   <button
-                    className={`nav-item ${activeSection === item.id ? 'active' : ''}`}
+                    className={`nav-item ${location.pathname === item.id ? 'active' : ''}`}
                     onClick={() => handleNavClick(item.id)}
                   >
                     <Icon className="nav-icon" />
@@ -139,21 +133,26 @@ const Sidebar = ({ activeSection, setActiveSection }) => {
             })}
           </motion.ul>
 
-          {/* CTA Button */}
-          <motion.div
-            className="sidebar-cta"
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.6 }}
-          >
-            <motion.button
-              className="cta-button"
-              whileHover={{ scale: 1.05, boxShadow: "0 10px 25px rgba(255, 215, 0, 0.3)" }}
-              whileTap={{ scale: 0.95 }}
+          {/* CTA Button or User Dashboard */}
+          {isAuthenticated ? (
+            <UserDashboard />
+          ) : (
+            <motion.div
+              className="sidebar-cta"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.6 }}
             >
-              Get Started
-            </motion.button>
-          </motion.div>
+              <motion.button
+                className="cta-button"
+                onClick={handleGetStarted}
+                whileHover={{ scale: 1.05, boxShadow: "0 10px 25px rgba(255, 215, 0, 0.3)" }}
+                whileTap={{ scale: 0.95 }}
+              >
+                Get Started
+              </motion.button>
+            </motion.div>
+          )}
         </div>
 
         {/* Decorative Elements */}
@@ -171,7 +170,7 @@ const Sidebar = ({ activeSection, setActiveSection }) => {
             }}
           />
         </div>
-      </motion.nav>
+      </nav>
 
       {/* Overlay for mobile */}
       {isOpen && (

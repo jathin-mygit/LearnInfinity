@@ -1,32 +1,47 @@
-# SkillSwap - Trade Skills, Not Cash
+# LearnInfinity - Trade Skills, Not Cash
 
-A modern, peer-to-peer skill exchange platform built with the MERN stack, featuring a stunning landing page with beautiful animations and a sleek side navigation design.
+A modern, peer-to-peer skill exchange platform built with the MERN stack, featuring a stunning landing page with beautiful animations, an elegant infinity logo, and a sophisticated purple-to-yellow gradient color scheme.
 
 ## 🚀 Features
 
-- **Modern Design**: Sleek yellow and black color scheme with a side navigation bar
+- **Modern Design**: Elegant purple and yellow gradient color scheme with side navigation
+- **Elegant Logo**: Beautiful infinity symbol (∞) representing limitless learning
 - **Beautiful Animations**: Smooth Framer Motion animations throughout the interface
 - **Responsive Layout**: Fully responsive design that works on all devices
 - **Interactive Elements**: Hover effects, floating particles, and dynamic components
 - **Time-Based Credits**: Fair exchange system where 1 hour teaching = 1 hour learning
 - **Peer-to-Peer Learning**: Direct connections between learners and teachers
 
+## 🎨 Design System
+
+### Color Palette
+- **Deep Purple**: #090040 (Primary dark)
+- **Royal Purple**: #471396 (Secondary)
+- **Bright Purple**: #B13BFF (Accent)
+- **Golden Yellow**: #FFCC00 (Highlight)
+
+### Logo Design
+- **Symbol**: Infinity (∞) representing endless learning possibilities
+- **Typography**: Modern split-level design with "Learn" and "Infinity"
+- **Colors**: Purple infinity symbol with yellow "Learn" text
+
 ## 🛠 Tech Stack
 
 - **Frontend**: React 18, Framer Motion, React Icons
 - **Backend**: Node.js, Express
-- **Styling**: Custom CSS with modern animations
+- **Styling**: Custom CSS with modern animations and gradients
+- **Fonts**: Inter & Poppins for modern typography
 - **Package Manager**: npm
 
 ## 📁 Project Structure
 
 ```
-skillswap/
+learninfinity/
 ├── client/                 # React frontend
 │   ├── public/
 │   ├── src/
 │   │   ├── components/     # React components
-│   │   │   ├── Sidebar.js  # Side navigation
+│   │   │   ├── Sidebar.js  # Side navigation with logo
 │   │   │   ├── Hero.js     # Hero section
 │   │   │   ├── Features.js # Features showcase
 │   │   │   ├── HowItWorks.js # Process explanation
@@ -36,28 +51,6 @@ skillswap/
 ├── server.js               # Express server
 └── package.json           # Server dependencies
 ```
-
-## 🎨 Design Features
-
-### Color Scheme
-- **Primary**: Golden Yellow (#FFD700)
-- **Secondary**: Warm Yellow (#FFC107)
-- **Background**: Dark gradients (#1a1a1a to #2d2d2d)
-- **Text**: White and light gray
-
-### Animations
-- Loading screen with rotating logo
-- Floating particles background
-- Smooth hover effects on cards and buttons
-- Staggered animations for content sections
-- Rotating decorative elements
-
-### Components
-1. **Sidebar Navigation**: Modern side-mounted navigation with smooth animations
-2. **Hero Section**: Eye-catching intro with animated skill cards
-3. **Features Grid**: Interactive feature cards with hover effects
-4. **How It Works**: Step-by-step process with connecting animations
-5. **Call to Action**: Contact information and final conversion section
 
 ## 🚀 Getting Started
 
@@ -103,20 +96,36 @@ The landing page is fully responsive with breakpoints for:
 - Tablet (768px - 1199px)
 - Mobile (< 768px)
 
+### Animations & Effects
+- Loading screen with rotating infinity logo
+- Floating purple particles background
+- Smooth gradient hover effects on cards and buttons
+- Staggered animations for content sections
+- Rotating decorative elements with purple accents
+- Gradient shimmer effects on interactive elements
+
+### Components
+1. **Sidebar Navigation**: Modern side-mounted navigation with elegant logo
+2. **Hero Section**: Eye-catching intro with animated skill cards
+3. **Features Grid**: Interactive feature cards with purple/yellow theme
+4. **How It Works**: Step-by-step process with gradient connecting animations
+5. **Call to Action**: Contact information and final conversion section
+
 ## 🎯 Key Sections
 
-1. **Hero**: Compelling introduction with animated skill cards
-2. **Features**: Six key platform benefits with interactive cards
-3. **How It Works**: Four-step process explanation
-4. **Contact/CTA**: Contact information and final call-to-action
+1. **Hero**: Compelling introduction with animated skill cards and gradient backgrounds
+2. **Features**: Six key platform benefits with interactive purple-themed cards
+3. **How It Works**: Four-step process explanation with gradient elements
+4. **Contact/CTA**: Contact information and final call-to-action with elegant styling
 
 ## 🔧 Customization
 
-The design system uses CSS custom properties for easy theming. Key variables include:
-- Primary colors
-- Animation durations
-- Spacing units
-- Typography scales
+The design system uses CSS custom properties for easy theming. Key design elements include:
+- Purple to yellow gradient backgrounds
+- Infinity logo with customizable colors
+- Animation durations and easing functions
+- Spacing units and typography scales
+- Interactive hover states with gradient effects
 
 ## 📄 License
 
@@ -132,4 +141,4 @@ This project is licensed under the MIT License.
 
 ---
 
-**SkillSwap** - Empowering communities through skill exchange 🌟
+**LearnInfinity** - Empowering communities through infinite learning possibilities ∞
