@@ -19,7 +19,15 @@ const PORT = process.env.PORT || 5000;
 const activeSessions = new Map(); // userId -> { startTime, lastActivity, creditDeductionTimer }
 
 // Middleware
-app.use(cors());
+const corsOptions = {
+  origin: process.env.NODE_ENV === 'production' 
+    ? ['https://your-frontend-url.vercel.app', 'https://learninfinity.vercel.app']
+    : ['http://localhost:3000'],
+  credentials: true,
+  optionsSuccessStatus: 200
+};
+
+app.use(cors(corsOptions));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
