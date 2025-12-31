@@ -1,14 +1,15 @@
 import axios from 'axios';
 
 // Create axios instance with base configuration
+// For single Render deployment, use relative paths
 const baseURL = process.env.NODE_ENV === 'production' 
-  ? process.env.REACT_APP_API_URL || window.location.origin + '/api'
+  ? '/api'  // Same domain, just /api path
   : 'http://localhost:5000/api';
 
 console.log('=== API Configuration Debug ===');
 console.log('NODE_ENV:', process.env.NODE_ENV);
 console.log('REACT_APP_API_URL:', process.env.REACT_APP_API_URL);
-console.log('Window origin:', typeof window !== 'undefined' ? window.location.origin : 'undefined');
+console.log('Single Render deployment detected');
 console.log('Final API Base URL:', baseURL);
 console.log('================================');
 

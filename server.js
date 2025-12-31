@@ -21,48 +21,67 @@ const activeSessions = new Map(); // userId -> { startTime, lastActivity, credit
 // Middleware
 const corsOptions = {
   origin: process.env.NODE_ENV === 'production' 
-    ? [
-        'https://your-render-app-name.onrender.com',
-        /\.onrender\.com$/,
-        process.env.FRONTEND_URL
-      ]
+    ? true  // Allow same origin for single deployment
     : ['http://localhost:3000'],
   credentials: true,
   optionsSuccessStatus: 200
 };
 
+console.log('CORS configured for single deployment');
 app.use(cors(corsOptions));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-// MongoDB Connection
+// MongoDB Connection with retry logic
 const connectDB = async () => {
-  try {
-    // Debug: Log environment variables
-    console.log('Environment check:');
-    console.log('NODE_ENV:', process.env.NODE_ENV);
-    console.log('MONGODB_URI exists:', !!process.env.MONGODB_URI);
-    console.log('MONGODB_URI length:', process.env.MONGODB_URI ? process.env.MONGODB_URI.length : 0);
-    console.log('MONGODB_URI first 20 chars:', process.env.MONGODB_URI ? process.env.MONGODB_URI.substring(0, 20) : 'undefined');
-    
-    let mongoUri;
-    
-    if (process.env.MONGODB_URI && process.env.MONGODB_URI.startsWith('mongodb')) {
-      mongoUri = process.env.MONGODB_URI;
-    } else {
-      // Fallback: construct from individual components or use hardcoded for production
-      console.log('Using fallback MongoDB URI construction');
-      mongoUri = `mongodb+srv://${process.env.DB_USER || 'nithinkata5_db_user'}:${process.env.DB_PASS || 'oDiVQ0r5ehEmAXfp'}@${process.env.DB_HOST || 'cluster0.7oubdv2.mongodb.net'}/${process.env.DB_NAME || 'learninfinity'}?retryWrites=true&w=majority`;
+  const maxRetries = 5;
+  let retries = 0;
+  
+  while (retries < maxRetries) {
+    try {
+      // Debug: Log environment variables
+      console.log('=== MongoDB Connection Attempt ===');
+      console.log('Attempt:', retries + 1);
+      console.log('NODE_ENV:', process.env.NODE_ENV);
+      console.log('MONGODB_URI exists:', !!process.env.MONGODB_URI);
+      console.log('MONGODB_URI length:', process.env.MONGODB_URI ? process.env.MONGODB_URI.length : 0);
+      console.log('MONGODB_URI starts with:', process.env.MONGODB_URI ? process.env.MONGODB_URI.substring(0, 20) : 'undefined');
+      
+      if (!process.env.MONGODB_URI) {
+        throw new Error('MONGODB_URI environment variable is not defined');
+      }
+      
+      const mongoUri = process.env.MONGODB_URI;
+      console.log('Attempting to connect...');
+      
+      const conn = await mongoose.connect(mongoUri, {
+        useNewUrlParser: true,
+        useUnifiedTopology: true,
+        serverSelectionTimeoutMS: 10000, // 10 seconds
+        socketTimeoutMS: 45000, // 45 seconds
+      });
+      
+      console.log(`✅ MongoDB Connected: ${conn.connection.host}`);
+      console.log('Database name:', conn.connection.name);
+      console.log('Connection ready state:', conn.connection.readyState);
+      break;
+      
+    } catch (error) {
+      retries++;
+      console.error(`❌ MongoDB connection attempt ${retries} failed:`, error.message);
+      
+      if (retries >= maxRetries) {
+        console.error('🚨 All MongoDB connection attempts failed');
+        console.error('Full error:', error);
+        // Don't exit in production, let the app run without DB for debugging
+        if (process.env.NODE_ENV !== 'production') {
+          process.exit(1);
+        }
+      } else {
+        console.log(`⏳ Retrying in 5 seconds... (${retries}/${maxRetries})`);
+        await new Promise(resolve => setTimeout(resolve, 5000));
+      }
     }
-    
-    console.log('Attempting to connect with URI starting with:', mongoUri.substring(0, 20));
-    
-    const conn = await mongoose.connect(mongoUri);
-    console.log(`MongoDB Connected: ${conn.connection.host}`);
-  } catch (error) {
-    console.error('MongoDB connection error:', error.message);
-    console.error('Full error:', error);
-    process.exit(1);
   }
 };
 
@@ -181,6 +200,37 @@ app.get('/api/test-cors', (req, res) => {
     method: req.method,
     timestamp: new Date().toISOString()
   });
+});
+
+// Test database connection
+app.get('/api/test-db', async (req, res) => {
+  try {
+    const dbState = mongoose.connection.readyState;
+    const states = {
+      0: 'disconnected',
+      1: 'connected',
+      2: 'connecting',
+      3: 'disconnecting'
+    };
+    
+    // Try to perform a simple database operation
+    const User = require('./models/User');
+    const userCount = await User.countDocuments();
+    
+    res.json({
+      message: 'Database test completed',
+      connectionState: states[dbState],
+      userCount: userCount,
+      mongoUri: process.env.MONGODB_URI ? 'Set' : 'Not Set',
+      mongoUriLength: process.env.MONGODB_URI ? process.env.MONGODB_URI.length : 0
+    });
+  } catch (error) {
+    res.status(500).json({
+      message: 'Database test failed',
+      error: error.message,
+      mongoUri: process.env.MONGODB_URI ? 'Set' : 'Not Set'
+    });
+  }
 });
 
 // Root API route
