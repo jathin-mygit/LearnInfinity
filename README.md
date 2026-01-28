@@ -1,4 +1,4 @@
-# LearnInfinity ∞
+.,# LearnInfinity ∞
 
 > **Trade Skills, Not Cash** - A modern MERN stack platform for skill sharing through credit-based exchanges
 
@@ -91,6 +91,13 @@ LearnInfinity is a comprehensive skill-sharing platform that revolutionizes how 
    - Backend API: http://localhost:5000
 
 ## 🎨 Design System
+
+<img width="1919" height="915" alt="b0cf99db-8ac7-4e8c-8a77-42a332c6ba20" src="https://github.com/user-attachments/assets/0fa8df32-c6cf-48e0-a054-c2b03e2f4540" />
+<img width="1919" height="916" alt="86b0b558-e798-4407-ab6f-3b2a603c0292" src="https://github.com/user-attachments/assets/6a2b56aa-d7d9-457f-ab02-c76a94e74ac4" />
+<img width="1919" height="920" alt="27e70748-91d9-47b1-bf10-ae8c9f246e25" src="https://github.com/user-attachments/assets/9945a56b-3bed-43b3-b149-b8fb891a5292" />
+<img width="1919" height="918" alt="d5d83512-9afe-4191-a417-f19a387c6085" src="https://github.com/user-attachments/assets/54a74c4c-e56a-4962-8060-7e707005eac5" />
+<img width="1919" height="918" alt="5ee950e3-b002-4503-8521-ba5f07139c9e" src="https://github.com/user-attachments/assets/99384624-28d2-4095-bfbe-044ea6856e81" />
+<img width="1919" height="916" alt="be20e065-4df5-44ee-afb2-8ea27d4df750" src="https://github.com/user-attachments/assets/d411ae30-5731-45c3-a58e-5a66b1988762" />
 
 ### Color Palette
 - **Primary Dark**: `#061E29` - Deep navy for headers and primary elements
